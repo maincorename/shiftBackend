@@ -2,6 +2,7 @@ package ru.cft.shift.quickstart_bus_traffic.entity;
 
 import javax.persistence.*;
 import java.util.Objects;
+import java.util.Set;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
