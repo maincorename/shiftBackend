@@ -23,6 +23,15 @@ public class OrderEntity {
     @Column(name = "count")
     private int count;
 
+    @Column(name = "phone")
+    private Long phone;
+
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "roomNumber")
+    private int roomNumber;
+
     public void setMeals(Set<MealsEntity> meals) {
         this.meals = meals;
     }
@@ -35,12 +44,15 @@ public class OrderEntity {
         return count == that.count &&
                 Objects.equals(id, that.id) &&
                 Objects.equals(meals, that.meals) &&
-                Objects.equals(time, that.time);
+                Objects.equals(time, that.time)&&
+                Objects.equals(phone,that.phone)&&
+                Objects.equals(name,that.name)&&
+                Objects.equals(roomNumber,that.roomNumber);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, meals, time, count);
+        return Objects.hash(id, meals, time, count, phone, name, roomNumber);
     }
 
     public Set<MealsEntity> getMeals() {
@@ -71,4 +83,27 @@ public class OrderEntity {
         this.time = time;
     }
 
+    public Long getPhone() {
+        return phone;
+    }
+
+    public void setPhone(Long phone) {
+        this.phone = phone;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getRoomNumber() {
+        return roomNumber;
+    }
+
+    public void setRoomNumber(int roomNumber) {
+        this.roomNumber = roomNumber;
+    }
 }
