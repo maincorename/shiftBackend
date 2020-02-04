@@ -58,9 +58,9 @@ public class BusEntity {
     if (o == null || getClass() != o.getClass()) return false;
     BusEntity busEntity = (BusEntity) o;
     return Objects.equals(id, busEntity.id) &&
-        Objects.equals(number, busEntity.number) &&
-        Objects.equals(model, busEntity.model) &&
-        Objects.equals(passengers, busEntity.passengers);
+            Objects.equals(number, busEntity.number) &&
+            Objects.equals(model, busEntity.model) &&
+            Objects.equals(passengers, busEntity.passengers);
   }
 
   @Override
@@ -71,10 +71,11 @@ public class BusEntity {
   @Override
   public String toString() {
     return "BusEntity{" +
-        "id=" + id +
-        ", number='" + number + '\'' +
-        ", model=" + model +
-        ", passengers=" + passengers +
-        '}';
+            "id=" + id +
+            ", number='" + number + '\'' +
+            ", model=" + model +
+            ", passengers=" + passengers +
+            '}';
   }
+
 }

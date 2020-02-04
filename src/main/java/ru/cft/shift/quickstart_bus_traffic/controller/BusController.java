@@ -10,6 +10,11 @@ public class BusController {
   @Autowired
   private IBusService busService;
 
+  //Mapping может применяться как ко всему классу, так и к методу, с параметрами: method, consumes, produces, params..
+  //в consumes и produces можно записывать перечисление значений { '...', '...' }
+  //params="myParam" позволяет отфильтровать запросы по наличию/отсутствию определённого ПАРАМЕТРА в запросе или по его значению.
+  //headers="meHeader" позволяет отфильтровать запросы по наличию/отсутствию определённого ЗАГОЛОВКА в запросе или по его значению
+
   @RequestMapping(
       method = RequestMethod.POST,
       path = "/bus/add",
@@ -32,8 +37,11 @@ public class BusController {
     return busService.addPassenger(number, passengerName);
   }
 
-  @RequestMapping(method = RequestMethod.GET, path = "/bus/{id}", produces = "application/json")
-  public BusEntity get(@PathVariable(name = "id") Long id) {
-    return busService.get(id);
-  }
+  //@PathVariable, указывает на то, что данный параметр получается из адресной строки {id}
+
+  @RequestMapping(
+      method = RequestMethod.GET,
+      path = "/bus/{id}",
+      produces = "application/json"
+  ) public BusEntity get(@PathVariable(name = "id") Long id) { return busService.get(id); }
 }
