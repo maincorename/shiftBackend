@@ -22,7 +22,7 @@ public class RestaurantController {
     ) public RestaurantEntity add(
             @RequestParam(name = "name") String name,
             @RequestParam(name = "description") String description,
-            @RequestParam(name = "image") String image){
-        return restaurantService.add(name, description, image);
+            @RequestParam(name = "img") String img){
+        return restaurantService.add(name, description, img);
     }
 }

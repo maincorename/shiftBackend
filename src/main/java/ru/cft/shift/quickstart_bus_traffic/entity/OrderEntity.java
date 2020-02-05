@@ -7,7 +7,7 @@ import java.util.Set;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
-@Table(name = "order")
+@Table(name = "order_table")
 public class OrderEntity {
     @Id
     @Column(name = "id")

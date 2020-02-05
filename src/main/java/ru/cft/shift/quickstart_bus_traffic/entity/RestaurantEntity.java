@@ -21,6 +21,9 @@ public class RestaurantEntity {
     @Column(name = "description")
     private String description;
 
+    @Column(name = "img")
+    private String img;
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -36,9 +39,6 @@ public class RestaurantEntity {
     public int hashCode() {
         return Objects.hash(id, name, description, img);
     }
-
-    @Column(name = "img")
-    private String img;
 
 
     public Long getId() {
