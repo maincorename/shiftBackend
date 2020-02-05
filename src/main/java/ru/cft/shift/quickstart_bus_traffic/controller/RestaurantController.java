@@ -8,11 +8,21 @@ import org.springframework.web.bind.annotation.RestController;
 import ru.cft.shift.quickstart_bus_traffic.entity.RestaurantEntity;
 import ru.cft.shift.quickstart_bus_traffic.service.IRestaurantService;
 
+import java.util.List;
+
 @RestController
 public class RestaurantController {
 
     @Autowired
     private IRestaurantService restaurantService;
+
+    @RequestMapping(
+            method = RequestMethod.GET,
+            path = "/restaurant",
+            produces = "application/json"
+    ) public List<RestaurantEntity> getAll(){
+        return restaurantService.getAll();
+    }
 
     @RequestMapping(
             method = RequestMethod.POST,
