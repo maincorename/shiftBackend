@@ -12,7 +12,6 @@ public class RestaurantService implements IRestaurantService {
     @Autowired
     private IRestaurantRepository restaurantRepository;
 
-
     @Override
     public RestaurantEntity add(RestaurantEntity restaurant) {
         return null;
@@ -23,7 +22,7 @@ public class RestaurantService implements IRestaurantService {
         RestaurantEntity restaurantEntity = new RestaurantEntity();
         restaurantEntity.setName(name);
         restaurantEntity.setDescription(description);
-        restaurantEntity.setImage(image);
+        restaurantEntity.setImg(image);
         return restaurantRepository.save(restaurantEntity);
     }
 

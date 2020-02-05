@@ -29,25 +29,24 @@ public class RestaurantEntity {
         return Objects.equals(id, that.id) &&
                 Objects.equals(name, that.name) &&
                 Objects.equals(description, that.description) &&
-                Objects.equals(image, that.image);
+                Objects.equals(img, that.img);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, description, image);
+        return Objects.hash(id, name, description, img);
     }
 
-    @Column(name = "image")
-    private String image;
+    @Column(name = "img")
+    private String img;
 
-    @Override
-    public String toString() {
-        return "RestaurantEntity{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", image='" + image + '\'' +
-                '}';
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -66,20 +65,21 @@ public class RestaurantEntity {
         this.description = description;
     }
 
-    public Long getId() {
-        return id;
+    public String getImg() {
+        return img;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setImg(String img) {
+        this.img = img;
     }
 
-    public String getImage() {
-        return image;
+    @Override
+    public String toString() {
+        return "RestaurantEntity{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", img='" + img + '\'' +
+                '}';
     }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
 }
