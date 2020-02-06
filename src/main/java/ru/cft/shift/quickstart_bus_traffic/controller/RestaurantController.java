@@ -1,10 +1,8 @@
 package ru.cft.shift.quickstart_bus_traffic.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import ru.cft.shift.quickstart_bus_traffic.entity.MealsEntity;
 import ru.cft.shift.quickstart_bus_traffic.entity.RestaurantEntity;
 import ru.cft.shift.quickstart_bus_traffic.service.IRestaurantService;
 
@@ -35,4 +33,10 @@ public class RestaurantController {
             @RequestParam(name = "img") String img){
         return restaurantService.add(name, description, img);
     }
+
+    @RequestMapping(
+            method = RequestMethod.GET,
+            path = "/restaurant/{id}",
+            produces = "application/json"
+    ) public List<MealsEntity> get(@PathVariable(name = "id") Long id) { return  restaurantService.getMeals(); };
 }

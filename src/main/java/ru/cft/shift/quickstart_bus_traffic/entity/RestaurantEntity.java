@@ -24,6 +24,20 @@ public class RestaurantEntity {
     @Column(name = "img")
     private String img;
 
+    @OneToMany(cascade = CascadeType.ALL)
+    private Set<MealsEntity> meals;
+
+    @Override
+    public String toString() {
+        return "RestaurantEntity{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", img='" + img + '\'' +
+                ", meals=" + meals +
+                '}';
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -32,14 +46,22 @@ public class RestaurantEntity {
         return Objects.equals(id, that.id) &&
                 Objects.equals(name, that.name) &&
                 Objects.equals(description, that.description) &&
-                Objects.equals(img, that.img);
+                Objects.equals(img, that.img) &&
+                Objects.equals(meals, that.meals);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, description, img);
+        return Objects.hash(id, name, description, img, meals);
     }
 
+    public Set<MealsEntity> getMeals() {
+        return meals;
+    }
+
+    public void setMeals(Set<MealsEntity> meals) {
+        this.meals = meals;
+    }
 
     public Long getId() {
         return id;
@@ -71,15 +93,5 @@ public class RestaurantEntity {
 
     public void setImg(String img) {
         this.img = img;
-    }
-
-    @Override
-    public String toString() {
-        return "RestaurantEntity{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", img='" + img + '\'' +
-                '}';
     }
 }

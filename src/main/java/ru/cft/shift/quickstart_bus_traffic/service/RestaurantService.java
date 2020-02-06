@@ -2,7 +2,9 @@ package ru.cft.shift.quickstart_bus_traffic.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import ru.cft.shift.quickstart_bus_traffic.entity.MealsEntity;
 import ru.cft.shift.quickstart_bus_traffic.entity.RestaurantEntity;
+import ru.cft.shift.quickstart_bus_traffic.repository.IMealsRepository;
 import ru.cft.shift.quickstart_bus_traffic.repository.IRestaurantRepository;
 
 import java.util.List;
@@ -11,12 +13,10 @@ import java.util.List;
 public class RestaurantService implements IRestaurantService {
 
     @Autowired
-    private IRestaurantRepository restaurantRepository;
+    private IMealsRepository mealsRepository;
 
-    @Override
-    public RestaurantEntity add(RestaurantEntity restaurant) {
-        return null;
-    }
+    @Autowired
+    private IRestaurantRepository restaurantRepository;
 
     @Override
     public RestaurantEntity add(String name, String description, String image) {
@@ -40,6 +40,11 @@ public class RestaurantService implements IRestaurantService {
     @Override
     public List<RestaurantEntity> getAll() {
         return (List<RestaurantEntity>) restaurantRepository.findAll();
+    }
+
+    @Override
+    public List<MealsEntity> getMeals() {
+        return (List<MealsEntity>) mealsRepository.findAll();
     }
 
 }

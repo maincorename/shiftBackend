@@ -17,7 +17,7 @@ public class MealsEntity {
     private String name;
 
     @Column(name = "description")
-    private String descrption;
+    private String description;
 
     @Column(name = "value")
     private double value;
@@ -41,12 +41,29 @@ public class MealsEntity {
         this.name = name;
     }
 
-    public String getDescrption() {
-        return descrption;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MealsEntity that = (MealsEntity) o;
+        return Double.compare(that.value, value) == 0 &&
+                Objects.equals(id, that.id) &&
+                Objects.equals(name, that.name) &&
+                Objects.equals(description, that.description) &&
+                Objects.equals(image, that.image);
     }
 
-    public void setDescrption(String descrption) {
-        this.descrption = descrption;
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, description, value, image);
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public double getValue() {
@@ -66,30 +83,14 @@ public class MealsEntity {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        MealsEntity mealsEntity = (MealsEntity) o;
-        return Objects.equals(id, mealsEntity.id) &&
-                Objects.equals(name, mealsEntity.name) &&
-                Objects.equals(descrption, mealsEntity.descrption) &&
-                Objects.equals(value, mealsEntity.value)&&
-                Objects.equals(image, mealsEntity.image);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, descrption, value, image);
-    }
-
-    @Override
     public String toString() {
         return "MealsEntity{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", description=" + descrption +
-                ", value='" + value + '\'' +
-                ", image='" + image +
+                ", description='" + description + '\'' +
+                ", value=" + value +
+                ", image='" + image + '\'' +
                 '}';
     }
+
 }
