@@ -6,9 +6,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import ru.cft.shift.quickstart_bus_traffic.entity.OrderEntity;
-import ru.cft.shift.quickstart_bus_traffic.entity.RestaurantEntity;
 import ru.cft.shift.quickstart_bus_traffic.service.IOrderService;
-import ru.cft.shift.quickstart_bus_traffic.service.IRestaurantService;
 
 @RestController
 public class OrderControler {

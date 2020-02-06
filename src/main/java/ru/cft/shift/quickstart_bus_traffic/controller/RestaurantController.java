@@ -3,6 +3,7 @@ package ru.cft.shift.quickstart_bus_traffic.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import ru.cft.shift.quickstart_bus_traffic.entity.MealsEntity;
+import ru.cft.shift.quickstart_bus_traffic.entity.RestaurantResponse;
 import ru.cft.shift.quickstart_bus_traffic.entity.RestaurantEntity;
 import ru.cft.shift.quickstart_bus_traffic.service.IRestaurantService;
 
@@ -18,8 +19,8 @@ public class RestaurantController {
             method = RequestMethod.GET,
             path = "/restaurant",
             produces = "application/json"
-    ) public List<RestaurantEntity> getAll(){
-        return restaurantService.getAll();
+    ) public List<RestaurantResponse> getAll(){
+        return restaurantService.getAllResponses();
     }
 
     @RequestMapping(
