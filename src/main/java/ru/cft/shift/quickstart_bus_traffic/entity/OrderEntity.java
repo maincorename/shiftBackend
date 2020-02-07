@@ -1,6 +1,7 @@
 package ru.cft.shift.quickstart_bus_traffic.entity;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -14,8 +15,8 @@ public class OrderEntity {
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    private Set<MealsEntity> meals;
+    @ManyToMany(cascade = CascadeType.ALL)
+    private List<MealsEntity> meals;
 
     @Column(name = "time")
     private String time;
@@ -32,7 +33,7 @@ public class OrderEntity {
     @Column(name = "roomNumber")
     private int roomNumber;
 
-    public void setMeals(Set<MealsEntity> meals) {
+    public void setMeals(List<MealsEntity> meals) {
         this.meals = meals;
     }
 
@@ -55,7 +56,7 @@ public class OrderEntity {
         return Objects.hash(id, meals, time, count, phone, name, roomNumber);
     }
 
-    public Set<MealsEntity> getMeals() {
+    public List<MealsEntity> getMeals() {
         return meals;
     }
 

@@ -2,6 +2,7 @@ package ru.cft.shift.quickstart_bus_traffic.entity;
 
 import javax.persistence.*;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -24,44 +25,8 @@ public class RestaurantEntity {
     @Column(name = "img")
     private String img;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    private Set<MealsEntity> meals;
-
-    @Override
-    public String toString() {
-        return "RestaurantEntity{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", img='" + img + '\'' +
-                ", meals=" + meals +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        RestaurantEntity that = (RestaurantEntity) o;
-        return Objects.equals(id, that.id) &&
-                Objects.equals(name, that.name) &&
-                Objects.equals(description, that.description) &&
-                Objects.equals(img, that.img) &&
-                Objects.equals(meals, that.meals);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, description, img, meals);
-    }
-
-    public Set<MealsEntity> getMeals() {
-        return meals;
-    }
-
-    public void setMeals(Set<MealsEntity> meals) {
-        this.meals = meals;
-    }
+    @ManyToMany(cascade = CascadeType.ALL)
+    private List<MealsEntity> meals;
 
     public Long getId() {
         return id;
@@ -93,5 +58,30 @@ public class RestaurantEntity {
 
     public void setImg(String img) {
         this.img = img;
+    }
+
+    public List<MealsEntity> getMeals() {
+        return meals;
+    }
+
+    public void setMeals(List<MealsEntity> meals) {
+        this.meals = meals;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        RestaurantEntity that = (RestaurantEntity) o;
+        return Objects.equals(id, that.id) &&
+                Objects.equals(name, that.name) &&
+                Objects.equals(description, that.description) &&
+                Objects.equals(img, that.img) &&
+                Objects.equals(meals, that.meals);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, description, img, meals);
     }
 }

@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import ru.cft.shift.quickstart_bus_traffic.entity.MealsEntity;
 import ru.cft.shift.quickstart_bus_traffic.entity.RestaurantResponse;
 import ru.cft.shift.quickstart_bus_traffic.entity.RestaurantEntity;
+import ru.cft.shift.quickstart_bus_traffic.service.IMealService;
 import ru.cft.shift.quickstart_bus_traffic.service.IRestaurantService;
 
 import java.util.List;
@@ -14,6 +15,9 @@ public class RestaurantController {
 
     @Autowired
     private IRestaurantService restaurantService;
+
+    @Autowired
+    private IMealService mealService;
 
     @RequestMapping(
             method = RequestMethod.GET,
@@ -39,5 +43,5 @@ public class RestaurantController {
             method = RequestMethod.GET,
             path = "/restaurant/{id}",
             produces = "application/json"
-    ) public List<MealsEntity> get(@PathVariable(name = "id") Long id) { return  restaurantService.getMeals(); };
+    ) public List<MealsEntity> get(@PathVariable(name = "id") Long id) { return  mealService.getAllByRestId(id); };
 }
