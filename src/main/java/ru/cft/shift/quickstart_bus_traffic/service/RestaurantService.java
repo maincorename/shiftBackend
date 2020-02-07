@@ -2,7 +2,6 @@ package ru.cft.shift.quickstart_bus_traffic.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.cft.shift.quickstart_bus_traffic.entity.BusEntity;
 import ru.cft.shift.quickstart_bus_traffic.entity.MealsEntity;
 import ru.cft.shift.quickstart_bus_traffic.entity.RestaurantResponse;
 import ru.cft.shift.quickstart_bus_traffic.entity.RestaurantEntity;
